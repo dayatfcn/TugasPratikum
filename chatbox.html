@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+        <title>ChatBox</title>
+
+    <style>
+        .kotak-chat{
+            border: 1px solid black;
+            width: 500px;
+            height: 200px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="isi-chat">
+    </div>
+    <div>
+        <input type="text" class="input-chat">
+        <button class="btn-chat" onclick="pesan()">Send</button>
+    </div>
+    <script>
+        function pesan() {
+        let isiChat = document.querySelector(".kotak-chat");
+        const inputChat = document.querySelector(".input-chat");
+        const btnChat = document.querySelector(".btn-chat");
+
+        isiChat.innerHTML = isiChat.innerHTML +"<br>" + inputChat.value;
+        inputChat.value="";
+        }
+    </script>
+</body>
+</html>

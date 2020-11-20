@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <title>Mata Uang</title>
+    <style>
+        fieldset{
+            background-color: cyan;
+            width: 500px;
+            margin: auto;
+            padding-bottom: 20px;
+        }
+        h1{
+            text-align: center;
+            font-size: large;
+        }
+        .atas{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <form>
+            <fieldset>
+                <legend>Kurs Rupiah - Mata Uang Asing</legend>
+        <table border="1">
+            <tr class="atas">
+                <td>Masukkan Nilai</td>
+                <td>Valas</td>
+                <td>Nilai Rupiah</td>
+            </tr>
+            <tr>
+                <td><input type="text" id="nilai" placeholder="Masukkan Nilai Mata Uang"></td>
+                <td>
+                    <select id="valas" onchange="conversi()">
+                        <option value="">--Pilih--</option>
+                        <option value="dolar-us">Dolar US</option>
+                        <option value="dolar-singapore">Dolar Singapore</option>
+                        <option value="ringgit">Ringgit Malaysia</option>
+                        <option value="yen">Yen Jepang</option>
+                        <option value="euro">Euro</option>
+                        <option value="riyal">Riyal Arab Saudi</option>
+                    </select>
+                </td>
+                <td><input type="text" readonly id="rupiah" placeholder="Rp.0"></td>
+            </tr>
+        </table>
+            </fieldset>
+        </form>
+    </div>
+    
+    <script>
+        function conversi (){
+            let nilaiUang = eval(document.getElementById("nilai").value);
+            let valasUang = document.getElementById("valas").value;
+            let nilaiRupiah = document.getElementById("rupiah").value;
+
+            if (valasUang 
+             == "dolar-us"){
+                nilaiRupiah = nilaiUang * 9.915;
+                document.getElementById("rupiah").value = "Rp." + nilaiRupiah;
+            }else if (valasUang == "dolar-singapore"){
+                nilaiRupiah = nilaiUang * 13.472;
+                document.getElementById("rupiah").value = "Rp." + nilaiRupiah;
+            }else if (valasUang == "ringgit"){
+                nilaiRupiah = nilaiUang * 874;
+                document.getElementById("rupiah").value = "Rp." + nilaiRupiah;
+            }else if (valasUang == "yen"){
+                nilaiRupiah = nilaiUang * 120;
+                document.getElementById("rupiah").value = "Rp." + nilaiRupiah;
+            }else if (valasUang == "euro"){
+                nilaiRupiah = nilaiUang * 15.888;
+                document.getElementById("rupiah").value = "Rp." + nilaiRupiah;
+            }else if (valasUang == "riyal"){
+                nilaiRupiah = nilaiUang * 3.592;
+                document.getElementById("rupiah").value = "Rp." + nilaiRupiah;
+            }else{
+                alert("Tidak Ada Mata Uang Itu");
+            }
+        }
+    </script>   
+</body>
+</html>
